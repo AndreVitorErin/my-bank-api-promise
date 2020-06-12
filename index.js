@@ -1,6 +1,8 @@
 const express = require('express');
 const fs = require('fs').promises;
 const app = express();
+const swaggerUi = require('swagger-ui-express');
+const swagger = require('./doc.js');
 const accountsRouter = require('./routes/accounts.js');
 const winston = require('winston');
 
@@ -25,6 +27,7 @@ global.logger = winston.createLogger({
 
 app.use(express.json());
 app.use('/account', accountsRouter);
+app.use('/doc', swaggerUi.serve, swaggerUi.setup(swagger));
 
 app.listen(3000, async () => {
   try {
