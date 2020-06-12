@@ -13,8 +13,12 @@ router.post('/', async (req, res) => {
 
     await fs.writeFile(global.fileName, JSON.stringify(json));
     res.end();
+
+    logger.info(`POST /account - ${JSON.stringify(account)}`);
   } catch (err) {
     res.status(400).send({ error: err.message });
+
+    logger.error(`POST /account - ${err.message}`);
   }
 });
 
@@ -24,8 +28,11 @@ router.get('/', async (_, res) => {
     let json = JSON.parse(data);
     delete json.nextId;
     res.send(json);
+
+    logger.info(`GET /account`);
   } catch (err) {
     res.status(400).send({ error: err.message });
+    logger.error(`GET /account - ${err.message}`);
   }
 });
 
@@ -38,11 +45,14 @@ router.get('/:id', async (req, res) => {
     );
     if (account) {
       res.send(account);
+      logger.info(`GET /account/:id - ${JSON.stringify(account)}`);
     } else {
       res.end();
+      logger.info(`GET /account/:id`);
     }
   } catch (err) {
     res.status(400).send({ error: err.message });
+    logger.error(`GET /account/:id - ${err.message}`);
   }
 });
 
@@ -58,8 +68,11 @@ router.delete('/:id', async (req, res) => {
 
     await fs.writeFile(global.fileName, JSON.stringify(json));
     res.end();
+
+    logger.info(`DELETE /account/ - ${req.params.id}`);
   } catch (err) {
     res.status(400).send({ error: err.message });
+    logger.error(`DELETE /account/ - ${err.message}`);
   }
 });
 
@@ -77,8 +90,11 @@ router.put('/', async (req, res) => {
 
     await fs.writeFile(global.fileName, JSON.stringify(json));
     res.end();
+
+    logger.info(`PUT /account/ - ${JSON.stringify(newAccount)}`);
   } catch (err) {
     res.status(400).send({ error: err.message });
+    logger.error(`PUT /account/ - ${err.message}`);
   }
 });
 
@@ -96,8 +112,11 @@ router.post('/transaction', async (req, res) => {
 
     await fs.writeFile(global.fileName, JSON.stringify(json));
     res.send(json.account[index]);
+
+    logger.info(`POST /account/transaction - ${JSON.stringify(params)}`);
   } catch (err) {
     res.status(400).send({ error: err.message });
+    logger.error(`POST /account/transaction - ${err.message}`);
   }
 });
 
