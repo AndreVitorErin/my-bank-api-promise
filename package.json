@@ -1,0 +1,22 @@
+{
+  "name": "my-bank-api-promise",
+  "version": "1.0.0",
+  "description": "criação de API utilizando promise",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreVitorErin/my-bank-api-promise.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndreVitorErin/my-bank-api-promise/issues"
+  },
+  "homepage": "https://github.com/AndreVitorErin/my-bank-api-promise#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
