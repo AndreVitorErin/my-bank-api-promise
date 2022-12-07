@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/AndreVitorErin/my-bank-api-promise#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "swagger-ui-express": "^4.1.4",
     "winston": "^3.2.1"
   }
